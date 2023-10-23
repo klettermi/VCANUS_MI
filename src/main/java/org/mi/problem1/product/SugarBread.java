@@ -2,7 +2,6 @@ package org.mi.problem1.product;
 
 import java.util.Map;
 
-// Concrete Product
 public class SugarBread implements Bread {
     private Map<String, Integer> recipe;
 

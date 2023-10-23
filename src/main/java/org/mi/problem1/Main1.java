@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.mi.problem1.factory.BreadFactory;
+import org.mi.problem1.factory.BreadFactoryImpl;
 import org.mi.problem1.product.Bread;
 
 import java.io.FileReader;
@@ -34,9 +35,8 @@ public class Main1 {
                 JSONObject jsonObject = (JSONObject) obj;
                 String breadType = (String) jsonObject.get("breadType");
                 Map<String, Integer> recipe = (Map<String, Integer>) jsonObject.get("recipe");
-
-                BreadFactory breadFactory = BreadFactory.createFactory(breadType);
-                Bread bread = breadFactory.createBread(recipe);
+                BreadFactory breadFactory = new BreadFactoryImpl();
+                Bread bread = breadFactory.createBread(breadType, recipe);
                 breads.add(bread);
             }
         } catch (IOException | ParseException e) {
